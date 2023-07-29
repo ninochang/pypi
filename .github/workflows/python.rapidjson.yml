@@ -15,6 +15,8 @@ jobs:
       matrix:
         python:
         - "3.10"
+    env:
+      OUTPUT_WHEEL_DIR: /usr/wheelhouse
 
     steps:
     # - name: Checkout
@@ -69,10 +71,12 @@ jobs:
         cd python-rapidjson &&
         git checkout tags/v1.10 &&
         git submodule update --init &&
-        python -m cibuildwheel --output-dir wheelhouse
-      # env:
+        python -m cibuildwheel --output-dir $OUTPUT_WHEEL_DIR
+      env:
+        CIBW_PROJECT_REQUIRES_PYTHON: ">=3.9"
+        CIBW_PLATFORM: linux
       #   CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
 
     - uses: actions/upload-artifact@v3
       with:
-        path: ./wheelhouse/*.whl
+        path: $OUTPUT_WHEEL_DIR/*.whl
