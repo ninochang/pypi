@@ -73,9 +73,9 @@ jobs:
         git submodule update --init &&
         python -m cibuildwheel --output-dir $OUTPUT_WHEEL_DIR
       env:
-        CIBW_BUILD: "*-manylinux_aarch64 *-cp36-musllinux_aarch64"
+        CIBW_BUILD: "*-manylinux_aarch64"
         CIBW_PROJECT_REQUIRES_PYTHON: ">=3.9"
-        # CIBW_PLATFORM: linux
+        CIBW_PLATFORM: linux
       #   CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
 
     - uses: actions/upload-artifact@v3
