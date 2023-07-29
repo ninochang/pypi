@@ -70,8 +70,8 @@ jobs:
         git checkout tags/v1.10 &&
         git submodule update --init &&
         python -m cibuildwheel --output-dir wheelhouse
-      env:
-        CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
+      # env:
+      #   CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
 
     - uses: actions/upload-artifact@v3
       with:
