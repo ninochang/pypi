@@ -49,7 +49,7 @@ jobs:
     #       MAKEFLAGS=-j${{ steps.config.outputs.NPROC }}
     #     cache-from: type=gha
     #     cache-to: type=gha,mode=max
-    - uses: actions/checkout@v3
+    # - uses: actions/checkout@v3
 
     - name: Setup - QEMU
       id: qemu
