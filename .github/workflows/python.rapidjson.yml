@@ -74,7 +74,7 @@ jobs:
         python -m cibuildwheel --output-dir $OUTPUT_WHEEL_DIR
       env:
         CIBW_PROJECT_REQUIRES_PYTHON: ">=3.9"
-        CIBW_ARCHS: "aarch64 arm64"
+        CIBW_ARCHS: "aarch64"
         CIBW_PLATFORM: "linux"
       #   CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
 
