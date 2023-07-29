@@ -65,29 +65,10 @@ jobs:
 
     - name: Install cibuildwheel
       run: -|
-        apk add --no-cache --virtual .build-deps \
-              cmake \
-              git \
-              build-base \
-              openssl-dev \
-              libffi-dev \
-              zlib-dev \
-              linux-headers \
-              pcre-dev \
-              libxml2-dev \
-              libxslt-dev \
-              snappy-dev \
-              bash \
-              curl \
-              rust \
-              cargo \
-              yaml-dev && \
-              git clone https://github.com/python-rapidjson/python-rapidjson.git && \
-        python -m pip install cibuildwheel==2.14.1 && \
         cd python-rapidjson && \
-        git checkout tags/$RAPID_JSON_VERSION && \
-          git submodule update --init && \
-          python -m cibuildwheel --output-dir wheelhouse
+        git checkout tags/v1.10 && \
+        git submodule update --init && \
+        python -m cibuildwheel --output-dir wheelhouse
       env:
         CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
 
