@@ -65,7 +65,6 @@ jobs:
 
     - name: Install cibuildwheel
       run: >
-        apt-get update && apt-get install -y git && 
         git clone https://github.com/python-rapidjson/python-rapidjson.git && 
         cd python-rapidjson &&
         git checkout tags/$RAPID_JSON_VERSION &&
