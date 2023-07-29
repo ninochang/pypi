@@ -64,12 +64,12 @@ jobs:
       run: python -m pip install cibuildwheel==2.14.1
 
     - name: Install cibuildwheel
-      run: |-
-        apt-get update && apt-get install -y git && \
-        git clone https://github.com/python-rapidjson/python-rapidjson.git && \
-        cd python-rapidjson && \
-        git checkout tags/$RAPID_JSON_VERSION && \
-        git submodule update --init && \
+      run: >
+        apt-get update && apt-get install -y git && 
+        git clone https://github.com/python-rapidjson/python-rapidjson.git && 
+        cd python-rapidjson &&
+        git checkout tags/$RAPID_JSON_VERSION &&
+        git submodule update --init &&
         python -m cibuildwheel --output-dir wheelhouse
       env:
         CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
