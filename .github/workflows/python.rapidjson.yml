@@ -73,8 +73,8 @@ jobs:
         git submodule update --init &&
         python -m cibuildwheel --output-dir $OUTPUT_WHEEL_DIR
       env:
-        CIBW_PROJECT_REQUIRES_PYTHON: ">=3.11"
-        CIBW_ARCHS: "aarch64"
+        CIBW_PROJECT_REQUIRES_PYTHON: ">=3.10"
+        CIBW_ARCHS: "x86_64 aarch64"
         CIBW_PLATFORM: "linux"
       #   CIBW_ENVIRONMENT: CFLAGS="-march=armv8-a+simd" CPPFLAGS="-RAPIDJSON_NEON=1"
 
